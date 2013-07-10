@@ -30,9 +30,7 @@ public class FacilitatorPhoto {
     static File mySessionDataFile = new File(DataPath+"SessionData.csv");
     static File myImageFile;
     //</editor-fold>
-    
-
-    
+       
     //<editor-fold defaultstate="collapsed" desc="Configuration Varraibles - Accessed Directly by ReadFacilitatorData() and ReadSessionData()">
     static List<String> FacilitatorName = new ArrayList<String>();
     static List<String> FacilitatorNumber = new ArrayList<String>();
@@ -46,15 +44,7 @@ public class FacilitatorPhoto {
     static String CurrentBarcodeScan;
    //</editor-fold>
    
-    /**
-     * 
-     * Creating Methods for Console version. Will later include option to run in
-     * Console or in GUI mode with a configuration utility for editing CSV files
-     * 
-     */
     public static void main(String[] args) {
-        // Stuff Happens here
-       
         //Runs Configuration from CSV files
         //Will add a cleanup/update function later
         System.out.println("Starting... ");
@@ -74,7 +64,6 @@ public class FacilitatorPhoto {
         
         ListFilesInFolder();
         MoveRenameImage();
-        
         }
     }
     //Hold on, it's about to get bumpy...
@@ -107,16 +96,13 @@ public class FacilitatorPhoto {
                 ex.printStackTrace();
             }
         }
-        //End Reading from Facilitator number Config sheet
-
-                  
+        //End Reading from Facilitator number Config sheet           
     }//End ReadFacilitatorData
     
     static void ReadSessionData() {
         String FileLine;
         String Number;
         String Name;
-        
         try{
            //Opening BufferedReader (inStream) to read from file 
            inStream = new Scanner(mySessionDataFile);
@@ -130,8 +116,7 @@ public class FacilitatorPhoto {
                 //Appending to Array List
                 SessionName.add(Name);
                 SessionNumber.add(Number);
-           }
-           
+           } 
         } catch (IOException e){
             e.printStackTrace();
         } finally {
@@ -142,8 +127,6 @@ public class FacilitatorPhoto {
             }
         }
         //End Reading from Session number Config sheet
-
-                  
     }//End ReadSessionData
     
     static void ListFilesInFolder(){
@@ -151,7 +134,6 @@ public class FacilitatorPhoto {
         File[] ListOfFiles = myImageFolder.listFiles();
         for(int i=0; i<ListOfFiles.length;i++){
             if(ListOfFiles[i].isFile()){
-                
                 FilesFound.add(ListOfFiles[i].getName());
             }
         }
@@ -172,25 +154,8 @@ public class FacilitatorPhoto {
         } catch(Exception e){
             e.printStackTrace();
         }
-        //<editor-fold defaultstate="collapsed" desc="Commented out Code to delete images">
-      /*  try{
-            File datpic=new File(InitialImagePath + ImageFilesFound.get(i));
-            if(datpic.delete()){
-                System.out.println(datpic.getName() + " is deleted!");
-            }
-            else{
-                System.out.println("error deleting");
-            }
-        } catch(Exception e){
-            e.printStackTrace();
-        }*/
-        //</editor-fold>
         }//End For Loop
-        
-        
     }//End MoveRenameImage
-    
- 
     static String GetBarcodeNumberConsole(){
         String BarcodeValue = ConsoleReader.nextLine();
         return BarcodeValue;
@@ -213,9 +178,7 @@ public class FacilitatorPhoto {
         //Prompt for Image Path if not default
         //Console Version
         System.out.println("Default image path at C:\\FacPicProg\\picturefolder\\");
-        
     }//End SetPathVariable
-    
     static void GetCurrentDataValues(int ind){
         CurrentFacilitatorNumber=FacilitatorNumber.get(ind);
         CurrentFacilitatorName=FacilitatorName.get(ind);
