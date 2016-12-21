@@ -1,3 +1,1 @@
-This is just a simple repository for random things I work on.
-This will likely become a repository for C# code examples and 
-learning projects. 
+Application in Java that will move photos from one directory to another with numbers, presumably read from a Barcode scanner. Used for event attendee photos where attendees also had a barcode on their badges for easy matching of pictures with names. 
